@@ -21,12 +21,12 @@ for (let i = 0; i < FadeADino.length; i++) {
     let FadeADino1 = FadeADino[i];
    
     
-    FadeADino1.addEventListener('click',function(){
+  FadeADino1.addEventListener('click',function(){
 if(FadeADino1.style.opacity >=0 ){
-    FadeADino1.style.opacity -=0.1;
+  FadeADino1.style.opacity -=0.1;
 }
     });
-};
+}
 
 let BurnADino = document.querySelectorAll('#row img');
 
@@ -37,11 +37,19 @@ for (let i = 0; i < BurnADino.length; i++) {
  BurnADinoI.addEventListener('click', function(){
 
 
-  if (BurnADinoI.style.width >='0px') {
-    BurnADinoI.style.width === '0px';
-}
+  
+    BurnADinoI.style.width = '0px';
+
 
   });
     
+}
+let meteor = document.querySelector('#destroy-all');
+kill = function(){
+for (const list of KillaDino) list.style.textDecoration = 'line-through';
+for(const list of FadeADino)list.style.opacity = '0';
+for(const image of BurnADino)image.style.width = '0px';
+
 };
 
+meteor.addEventListener('click', kill);
